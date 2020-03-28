@@ -241,7 +241,7 @@
             if(isset($request['caption'])){$columns.="asset_caption,";}		
             if(isset($request['filename'])){$columns.="asset_filename,";}		
             if(isset($request['metadata'])){$columns.="asset_metadata,";}
-            if(isset($request['profile_id'])){$columns.="profile_id,";}
+            if(isset($request['profile'])){$columns.="profile_id,";}		
 
             $columns.= "app_id,";
             $columns.= "event_id,";
@@ -258,7 +258,7 @@
             if(isset($request['object'])){$values.=":asset_object,";}		
             if(isset($request['caption'])){$values.=":asset_caption,";}		
             if(isset($request['filename'])){$values.=":asset_filename,";}		
-            if(isset($request['metadata'])){$values.=":asset_metadata,";}
+            if(isset($request['metadata'])){$values.=":asset_metadata,";}	
             if(isset($request['profile'])){$values.=":profile_id,";}
 
             $values.= ":app_id,";
@@ -286,7 +286,7 @@
             if(isset($request['caption'])){$statement->bindValue('asset_caption',$request['caption']);}		
             if(isset($request['filename'])){$statement->bindValue('asset_filename',$request['filename']);}		
             if(isset($request['metadata'])){$statement->bindValue('asset_metadata',$request['metadata']);}
-            if(isset($request['profile_id'])){$statement->bindValue('profile_id',$request['profile_id']);}
+            if(isset($request['profile'])){$statement->bindValue('profile_id',$request['profile']);}
 
             $statement->bindValue(':app_id', $request['app']);
             $statement->bindValue(':event_id', $this->token->event_id());
