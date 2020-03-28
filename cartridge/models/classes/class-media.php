@@ -395,7 +395,7 @@
                     if(isset($request['caption'])){$refinements.="asset_caption"." ILIKE "."'%".$request['caption']."%' AND ";}		
                     if(isset($request['filename'])){$refinements.="asset_filename"." ILIKE "."'%".$request['filename']."%' AND ";}		
                     if(isset($request['metadata'])){$refinements.="asset_metadata"." ILIKE "."'%".$request['metadata']."%' AND ";}		
-                    if(isset($request['profile'])){$refinements.="profile_id"." ILIKE "."'%".$request['profile_id']."%' AND ";}		
+                    if(isset($request['profile'])){$refinements.="profile_id"." = "."'".$request['profile']."' AND ";}		
 
                     //echo $conditions . 'conditions1<br/>';
                     //echo $refinements . 'refinements1<br/>';
