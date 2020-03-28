@@ -559,7 +559,7 @@
 
             $data = $statement->fetchAll();
             
-            $data = $data[0]['message_id'];
+            $data = $data[0]['asset_id'];
 
             // return generated id
             return $data;
