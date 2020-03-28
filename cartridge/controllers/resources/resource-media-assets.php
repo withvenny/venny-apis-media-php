@@ -27,6 +27,7 @@
     if(isset($_REQUEST['filename'])){$request['filename'] = clean($_REQUEST['filename']);}		
     if(isset($_REQUEST['metadata'])){$request['metadata'] = clean($_REQUEST['metadata']);}
     if(isset($_REQUEST['profile'])){$request['profile'] = clean($_REQUEST['profile']);}
+
     //
     switch ($_SERVER['REQUEST_METHOD']) {
 
@@ -36,14 +37,14 @@
             try {
 
                 // 
-                $message = new Message($pdo);
+                $media = new Media($pdo);
             
                 // insert a stock into the stocks table
-                $id = $message->insertMessage($request);
+                $id = $media->insertAsset($request);
 
                 $request['id'] = $id;
 
-                $results = $message->selectMessages($request);
+                $results = $media->selectAssets($request);
 
                 $results = json_encode($results);
                 
@@ -69,10 +70,10 @@
             try {
 
                 // 
-                $message = new Message($pdo);
+                $media = new Media($pdo);
 
                 // get all stocks data
-                $results = $message->selectMessages($request);
+                $results = $media->selectAssets($request);
 
                 $results = json_encode($results);
 
@@ -92,14 +93,14 @@
             try {
 
                 // 
-                $message = new Message($pdo);
+                $media = new Media($pdo);
             
                 // insert a stock into the stocks table
-                $id = $message->updateMessage($request);
+                $id = $media->updateAsset($request);
 
                 $request['id'] = $id;
 
-                $results = $message->selectMessages($request);
+                $results = $media->selectAssets($request);
 
                 $results = json_encode($results);
 
@@ -119,10 +120,10 @@
             try {
 
                 // 
-                $message = new Message($pdo);
+                $media = new Media($pdo);
             
                 // insert a stock into the stocks table
-                $id = $message->deleteMessage($request);
+                $id = $media->deleteAsset($request);
 
                 echo 'The record ' . $id . ' has been deleted';
             
