@@ -224,7 +224,7 @@
         }
 
         //
-        public function insertMedia($request) {
+        public function insertAsset($request) {
 
             //generate ID
             if(!isset($request['id'])){$request['id'] = $this->token->new_id('img');}
@@ -304,7 +304,7 @@
         }
 
         //
-        public function selectMessages($request) {
+        public function selectAssets($request) {
 
             //echo json_encode($request); exit;
 
@@ -504,7 +504,7 @@
         }
 
         //
-        public function updateMedia($request) {
+        public function updateAsset($request) {
 
             //
             $domain = $request['domain'];
@@ -570,7 +570,7 @@
         }
 
         //
-        public function deleteMedia($request) {
+        public function deleteAsset($request) {
 
             $id = $request['id'];
             $domain = $request['domain'];
