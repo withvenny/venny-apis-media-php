@@ -336,7 +336,7 @@
                 asset_caption,		
                 asset_filename,		
                 asset_metadata,		
-                profile_ID,
+                profile_ID
 
                 ";
 
@@ -371,7 +371,7 @@
                     
                     //echo json_encode($request['id']);
                     //echo '<br/>';
-                    echo $sql; exit;
+                    //echo $sql; exit;
 
                     //
                     $statement = $this->pdo->prepare($sql);
