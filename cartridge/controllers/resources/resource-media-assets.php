@@ -6,7 +6,7 @@
     //
     use Media\Connection as Connection;
     use Media\Token as Token;
-    use Media\Assets as Assets;
+    use Media\Asset as Asset;
 
     // connect to the PostgreSQL database
     $pdo = Connection::get()->connect();
