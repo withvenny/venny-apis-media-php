@@ -37,14 +37,14 @@
             try {
 
                 // 
-                $media = new Media($pdo);
+                $asset = new Asset($pdo);
             
                 // insert a stock into the stocks table
-                $id = $media->insertAsset($request);
+                $id = $asset->insertAsset($request);
 
                 $request['id'] = $id;
 
-                $results = $media->selectAssets($request);
+                $results = $asset->selectAssets($request);
 
                 $results = json_encode($results);
                 
@@ -70,10 +70,10 @@
             try {
 
                 // 
-                $media = new Media($pdo);
+                $asset = new Asset($pdo);
 
                 // get all stocks data
-                $results = $media->selectAssets($request);
+                $results = $asset->selectAssets($request);
 
                 $results = json_encode($results);
 
@@ -93,14 +93,14 @@
             try {
 
                 // 
-                $media = new Media($pdo);
+                $asset = new Asset($pdo);
             
                 // insert a stock into the stocks table
-                $id = $media->updateAsset($request);
+                $id = $asset->updateAsset($request);
 
                 $request['id'] = $id;
 
-                $results = $media->selectAssets($request);
+                $results = $asset->selectAssets($request);
 
                 $results = json_encode($results);
 
@@ -120,10 +120,10 @@
             try {
 
                 // 
-                $media = new Media($pdo);
+                $asset = new Asset($pdo);
             
                 // insert a stock into the stocks table
-                $id = $media->deleteAsset($request);
+                $id = $asset->deleteAsset($request);
 
                 echo 'The record ' . $id . ' has been deleted';
             
