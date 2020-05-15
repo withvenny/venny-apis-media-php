@@ -25,6 +25,7 @@
 
                 //
                 case 'assets': require 'controllers/resources/resource-media-assets.php'; break;
+                case 'images': require 'controllers/resources/resource-media-images.php'; break;
     
                 //
                 default: header("Location: template-guest-hello.php");
