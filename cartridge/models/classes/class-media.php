@@ -839,7 +839,7 @@
                             'caption' => $row['image_caption'],		
                             'filename' => $row['image_filename'],		
                             'metadata' => json_decode($row['image_metadata']),
-                            'profile_id' => $row['profile_id']
+                            'profile' => $row['profile_id']
 
                         ];
 
