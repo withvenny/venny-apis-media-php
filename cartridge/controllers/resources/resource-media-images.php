@@ -87,7 +87,7 @@
                         $upload = $s3->upload(
                             $bucket, // Bucket to upload the object.
                             $key, // Key of the object.
-                            fopen($_FILES['image']['tmp_name'], 'rb'), // Object data to upload. Can be a StreamInterface, PHP stream resource, or a string of data to upload.
+                            fopen("images"."/".$_FILES['image']['tmp_name'], 'rb'), // Object data to upload. Can be a StreamInterface, PHP stream resource, or a string of data to upload.
                             'public-read' // ACL to apply to the object (default: private).
                         );
                 
