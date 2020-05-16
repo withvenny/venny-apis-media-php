@@ -55,7 +55,7 @@
                 $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13) . $request['profile'] . "." . $path_parts['extension'];
                 $request['type'] = $_FILES['image']['type'];
 
-                $key = $request['filename'];
+                $key = "images"."/".$request['filename'];
 
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
@@ -87,13 +87,13 @@
                         $upload = $s3->upload(
                             $bucket, // Bucket to upload the object.
                             $key, // Key of the object.
-                            fopen("images"."/".$_FILES['image']['tmp_name'], 'rb'), // Object data to upload. Can be a StreamInterface, PHP stream resource, or a string of data to upload.
+                            fopen($_FILES['image']['tmp_name'], 'rb'), // Object data to upload. Can be a StreamInterface, PHP stream resource, or a string of data to upload.
                             'public-read' // ACL to apply to the object (default: private).
                         );
                 
                     } catch(Exception $e) {
                 
-                        echo "Ooops";
+                        die("There was an error uploading this file.");
                 
                     }
                 
