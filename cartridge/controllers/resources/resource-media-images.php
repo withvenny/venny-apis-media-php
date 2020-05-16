@@ -52,7 +52,7 @@
 
                 //echo substr($request['profile'],-4,0);
 
-                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13) . $request['profile'] . "." . $path_parts['extension'];
+                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13) . "_" . $request['profile'] . "." . $path_parts['extension'];
                 $request['type'] = $_FILES['image']['type'];
 
                 $key = "images"."/".$request['filename'];
