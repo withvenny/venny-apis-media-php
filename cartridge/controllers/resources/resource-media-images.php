@@ -21,12 +21,10 @@
     // INITIATE DATA CLEANSE
     if(isset($_REQUEST['id'])){$request['id'] = clean($_REQUEST['id']);}		
     if(isset($_REQUEST['attributes'])){$request['attributes'] = clean($_REQUEST['attributes']);}		
-    if(isset($_REQUEST['type'])){$request['type'] = clean($_REQUEST['type']);}		
     if(isset($_REQUEST['status'])){$request['status'] = clean($_REQUEST['status']);}		
     if(isset($_REQUEST['primary'])){$request['primary'] = clean($_REQUEST['primary']);}		
     if(isset($_REQUEST['object'])){$request['object'] = clean($_REQUEST['object']);}		
     if(isset($_REQUEST['caption'])){$request['caption'] = clean($_REQUEST['caption']);}		
-    if(isset($_REQUEST['filename'])){$request['filename'] = clean($_REQUEST['filename']);}		
     if(isset($_REQUEST['metadata'])){$request['metadata'] = clean($_REQUEST['metadata']);}		
     if(isset($_REQUEST['profile'])){$request['profile'] = clean($_REQUEST['profile']);}		
     
@@ -41,7 +39,8 @@
                 // 
                 $image = new Image($pdo);
 
-                $request['filename'] = $_FILES['image']['name'];
+                $request['filename'] = $request['filename'] . $_FILES['image']['name'];
+                $request['type'] = $_FILES['image']['type'];
 
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
@@ -57,7 +56,7 @@
                 echo $path_parts['extension'], "\n";
                 echo $path_parts['filename'], "\n"; // since PHP 5.2.0
 
-                $key = $request['id'] . "." . $path_parts['extension'];
+                $key = $request['filename'] . "." . $path_parts['extension'];
 
                 //
                 //print_r($_FILES); exit;
