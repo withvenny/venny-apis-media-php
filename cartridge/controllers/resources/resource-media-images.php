@@ -44,14 +44,14 @@
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
 
-                $key = $_FILES['image']['name'];
-
                 $path_parts = pathinfo($_FILES['image']['name']);
 
                 echo $path_parts['dirname'], "\n";
                 echo $path_parts['basename'], "\n";
                 echo $path_parts['extension'], "\n";
                 echo $path_parts['filename'], "\n"; // since PHP 5.2.0
+
+                $key = $request[id] . "." . $path_parts['extension'];
 
                 //
                 print_r($_FILES); exit;
