@@ -52,10 +52,10 @@
 
                 echo substr($request['profile'],-4,0);
 
-                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13);
+                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13) . "." . $path_parts['extension'];
                 $request['type'] = $_FILES['image']['type'];
 
-                $key = $request['filename'] . "." . $path_parts['extension'];
+                $key = $request['filename'];
 
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
