@@ -39,7 +39,7 @@
                 // 
                 $image = new Image($pdo);
 
-                $request['filename'] = $request['filename'] . $_FILES['image']['name'];
+                $request['filename'] = substr($request['profile'],-4,0) . substr(md5(uniqid(microtime(true),true)),0,13);
                 $request['type'] = $_FILES['image']['type'];
 
                 // insert a stock into the stocks table
