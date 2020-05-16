@@ -650,36 +650,6 @@
             $values.= ":event_id,";
             $values.= ":process_id";
 
-            /* AWS S3 */
-            $s3 = new Aws\S3\S3Client([
-
-                'credentials' => [
-                    'key' => $config['s3']['key'],
-                    'secret' => $config['s3']['secret']
-                  ],
-                  'bucket' => $config['s3']['bucket'],
-                  'version' => 'latest',
-                  'region'  => 'us-east-1'
-            ]);
-            
-            $bucket = $config['s3']['bucket']?: die('No "S3_BUCKET" config var in found in env!');
-
-            if(isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['image']['tmp_name'])) {
-   
-                // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
-                try {
-                    
-                    // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
-                    $upload = $s3->upload($bucket, $_FILES['image']['name'], fopen($_FILES['image']['tmp_name'], 'rb'), 'public-read');
-            
-                } catch(Exception $e) {
-            
-                    echo "Ooops";
-            
-                }
-            
-            };
-
             // prepare statement for insert
             $sql = "INSERT INTO {$request['domain']} (";
             $sql.= $columns;
