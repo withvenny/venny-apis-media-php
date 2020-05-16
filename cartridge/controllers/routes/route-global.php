@@ -4,7 +4,7 @@
     header('Content-Type: application/json');
 
     //
-    require 'autoldoad.php';
+    require 'autoload.php';
     require 'controllers/components/component-functions.php';
     require 'controllers/components/component-environments.php';
 
