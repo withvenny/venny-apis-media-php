@@ -44,6 +44,8 @@
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
 
+                $key = $_FILES['image']['name'];
+
                 /* AWS S3 */
                 $s3 = S3Client::factory([
 
@@ -66,7 +68,7 @@
                         // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
                         $upload = $s3->upload(
                             $bucket, // Bucket to upload the object.
-                            $request['id'], // Key of the object.
+                            $key, // Key of the object.
                             fopen($_FILES['image']['tmp_name'], 'rb'), // Object data to upload. Can be a StreamInterface, PHP stream resource, or a string of data to upload.
                             'public-read' // ACL to apply to the object (default: private).
                         );
