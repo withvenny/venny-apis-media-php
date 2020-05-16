@@ -46,15 +46,16 @@
                 //echo $path_parts['extension'], "\n";
                 //echo $path_parts['filename'], "\n"; // since PHP 5.2.0
 
-                $key = $request['filename'] . "." . $path_parts['extension'];
 
                 //
                 //print_r($_FILES); exit;
 
                 echo substr($request['profile'],-4,0);
 
-                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13) .".". $path_parts['extension'];
+                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13);
                 $request['type'] = $_FILES['image']['type'];
+
+                $key = $request['filename'] . "." . $path_parts['extension'];
 
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
