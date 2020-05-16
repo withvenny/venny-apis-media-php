@@ -39,7 +39,21 @@
                 // 
                 $image = new Image($pdo);
 
-                $request['filename'] = substr($request['profile'],-4,0) . substr(md5(uniqid(microtime(true),true)),0,13);
+                $path_parts = pathinfo($_FILES['image']['name']);
+
+                //echo $path_parts['dirname'], "\n";
+                //echo $path_parts['basename'], "\n";
+                //echo $path_parts['extension'], "\n";
+                //echo $path_parts['filename'], "\n"; // since PHP 5.2.0
+
+                $key = $request['filename'] . "." . $path_parts['extension'];
+
+                //
+                //print_r($_FILES); exit;
+
+                echo substr($request['profile'],-4,0);
+
+                $request['filename'] = substr(md5(uniqid(microtime(true),true)),0,13) .".". $path_parts['extension'];
                 $request['type'] = $_FILES['image']['type'];
 
                 // insert a stock into the stocks table
@@ -48,18 +62,6 @@
                 $request['id'] = $id;
 
                 $results = $image->selectImages($request);
-
-                $path_parts = pathinfo($_FILES['image']['name']);
-
-                echo $path_parts['dirname'], "\n";
-                echo $path_parts['basename'], "\n";
-                echo $path_parts['extension'], "\n";
-                echo $path_parts['filename'], "\n"; // since PHP 5.2.0
-
-                $key = $request['filename'] . "." . $path_parts['extension'];
-
-                //
-                //print_r($_FILES); exit;
 
                 /* AWS S3 */
                 $s3 = S3Client::factory([
