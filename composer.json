@@ -13,8 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Media\\": "cartridge/models/classes/",
-      "S3\\": "vendor/aws/aws-sdk-php/"
+      "Media\\": "cartridge/models/classes/"
     }
   }
 }

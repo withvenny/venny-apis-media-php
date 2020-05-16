@@ -7,7 +7,7 @@
     use Media\Connection as Connection;
     use Media\Token as Token;
     use Media\Image as Image;
-    use S3\S3Client as S3Client;
+    use Aws\S3\S3Client as S3Client;
     //use S3\Exception\S3Exception as S3Exception;
 
     // connect to the PostgreSQL database
