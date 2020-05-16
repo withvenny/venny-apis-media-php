@@ -41,6 +41,8 @@
                 // 
                 $image = new Image($pdo);
 
+                $request['filename'] = $_FILES['image']['name'];
+
                 // insert a stock into the stocks table
                 $id = $image->insertImage($request);
             
@@ -58,7 +60,7 @@
                 $key = $request['id'] . "." . $path_parts['extension'];
 
                 //
-                print_r($_FILES); exit;
+                //print_r($_FILES); exit;
 
                 /* AWS S3 */
                 $s3 = S3Client::factory([
