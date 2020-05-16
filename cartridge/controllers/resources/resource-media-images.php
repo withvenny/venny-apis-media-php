@@ -47,7 +47,7 @@
                 $key = $_FILES['image']['name'];
 
                 //
-                echo $_FILES; exit;
+                print_r($_FILES); exit;
 
                 /* AWS S3 */
                 $s3 = S3Client::factory([
