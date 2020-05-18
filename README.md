@@ -1,4 +1,4 @@
-<img src="https://github.com/withvenny/venny-apis-messaging-php/blob/master/venny-apis-cover-Media.png">
+<img src="https://github.com/withvenny/venny-apis-media-php/blob/master/venny-apis-cover-Media.png">
 
 # Media from Venny
 
